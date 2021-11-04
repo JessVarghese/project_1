@@ -8,43 +8,60 @@
         <link rel="stylesheet" href="./css/style.css" />
         <title>Project Name</title>
     </head>
-    <header>
-        <h1>Project Name</h1>
+    <header class="hero is-primary">
+        <div class="hero-body">
+        <h1 class="title is-1">[Project Name]</h1>
     </header>
     <body>
         <main>
-            <!--About the site paregraph-->            
-            <section class="about-site">
-                <p>About Site:</p>
-                <p>This site helps match people with a forever friend. You can sreach by any type of animal based on your location.</p>
-            </section>
-             <!--User form input--> 
-            <section class="form-section" id="form">
-                <div class="card">
-                    <h3 class="">Search Pet</h3>
-                    <form id="type-form" class="">
-                      <label class="" for="pet-type">Pet Type</label>
-                      <input name="pet-type" id="pettype" type="text" autofocus="true" class="form-input" />
-
-                    </form>
-                    <form id="location-form" class="">
-                        <label class="" for="pet-location">Pet location</label>
-                        <input name="pet-location" id="petlocation" type="text" autofocus="true" class="form-input" />
-                        <button type="submit" class="btn">Find Pet</button>
-                    </form>
+            <!--About the site -->  
+            <section class="about-site box columns is-vcentered">
+                <div class="column is-6">
+                  <p class="bd-notification is-primary"><p class="is-size-3">About Site:</p>
+                  <div class="block"></div>
+                  <p>This site helps match people with a forever friend. You can search by any type of animal based on your location.</p>
                 </div>
 
+                 <!--User form input--> 
+                <form class="column is-5 box">
+                    <h3 class="is-size-3">Search Pet</h3>
+                    <div class="block"></div>
+                    <div class="field">
+                        <label class="label">Pet Type</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Enter Pet Type">
+                        </div>
+                      </div>
+                      
+                      <div class="field">
+                        <label class="label">Pet location</label>
+                        <div class="control">
+                          <input class="input" type="email" placeholder="Enter location">
+                        </div>
+                      </div>
+                      <input class="button is-primary is-active" type="submit" value="Search">  
+                </form>                     
             </section>
+
             <!-- Display search results--> 
-            <section class="" id="search-results">
+            <section class="section is-medium box" id="search-results">
+                <p class="is-size-3 has-text-centered">Search Results</p>
               <div class="" id=""></div>
             </section>
+        
         </main>
-        <footer>
-            <div class="info">
-                <span>Footer info</span>
+        
+        
+
+        <!--Footer Section-->
+        <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                <strong>[Project Name]</strong> Made by Jess Varghese, Abeer Tannous and Mac Glenn</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+              </p>
             </div>
-        </footer>
+          </footer>
         <script src="./js/script.js"></script>
     </body>
 </html>
