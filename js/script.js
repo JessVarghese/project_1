@@ -27,8 +27,7 @@ fetch("https://api.rescuegroups.org/v5/public/animals/search/available/dogs/hasp
   .catch(error => console.log('error', error));
 
 
-console.log(response.data[0]);
-
+//console.log(response.data[0]);
 
 
 
