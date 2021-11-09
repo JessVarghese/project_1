@@ -25,7 +25,7 @@ var requestOptions = {
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
 
-document.querySelector("results").innerHTML = result.data;
+
     
 
 
