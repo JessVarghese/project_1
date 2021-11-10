@@ -30,10 +30,15 @@ gh repo clone JessVarghese/the_pet_project.
 ## Usage
 
 
-![visuals]()
+![visuals](https://github.com/JessVarghese/the_pet_project/blob/develop/images/tpp_image.png)
 
 ## Technologies
+The following applications were used as a part of this project:
 
+* [Bulma](https://bulma.io/)
+* [flaticon](https://www.flaticon.com/)
+* [RescueGroups.org](https://rescuegroups.org/services/adoptable-pet-data-api/)
+* [ZipCodeAPI.com](http://www.zipcodeapi.com/index.php)
 
 ## License
 
