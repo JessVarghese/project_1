@@ -27,13 +27,14 @@ var requestOptions = {
   .then(response => response.json())
   .then(function(data){
     
+
     var zipCode = document.createElement("p");
     zipCode.textContent = "Location: " + JSON.stringify(data.included[0].attributes.postalcode);
      console.log(zipCode);
      results.appendChild(zipCode);
 
      var img = document.createElement("img");
-     img.src = data.included[1].attributes.original.url;
+     img.src = data.included[1].attributes.small.url;
      results.appendChild(img);
 
 
@@ -41,7 +42,7 @@ var requestOptions = {
    } )
   
   }
-// fecthing the dogs information 
+// fetching the dogs information 
   function fetchDogs(){
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/vnd.api+json");
@@ -64,19 +65,20 @@ var requestOptions = {
       limit:5
     };
     
-       fetch("https://api.rescuegroups.org/v5/public/animals/search/available/dogs/haspic?include=locations,pictures&sort=random&limit=1", requestOptions)
+       fetch("https://api.rescuegroups.org/v5/public/animals/search/available/dogs/haspic?include=locations,pictures,breeds&sort=random&limit=1", requestOptions)
       .then(response => response.json())
       .then(function(data){
-        
+
+
         var zipCode = document.createElement("p");
         zipCode.textContent = "Location: " + JSON.stringify(data.included[0].attributes.postalcode);
          console.log(zipCode);
          results.appendChild(zipCode);
     
          var img = document.createElement("img");
-         img.src = data.included[1].attributes.original.url;
+         img.src = data.included[1].attributes.small.url;
          results.appendChild(img);
-    
+         
     
        } )
       
