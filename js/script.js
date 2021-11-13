@@ -23,20 +23,12 @@ var requestOptions = {
   limit:5
 };
 
-   fetch("https://api.rescuegroups.org/v5/public/animals/search/available/cats/haspic?include=locations,pictures&sort=random&limit=1", requestOptions)
+   fetch("https://api.rescuegroups.org/v5/public/animals/search/available/cats/haspic?include=locations,pictures&sort=random&limit=10", requestOptions)
   .then(response => response.json())
   .then(function(data){
-    
-    var zipCode = document.createElement("p");
-    zipCode.textContent = "Location: " + JSON.stringify(data.included[0].attributes.postalcode);
-     console.log(zipCode);
-     results.appendChild(zipCode);
+    console.log(data);
 
-     var img = document.createElement("img");
-     img.src = data.included[1].attributes.original.url;
-     results.appendChild(img);
-
-
+    displayPet(data.data,data.included);
 
    } )
   
@@ -64,22 +56,12 @@ var requestOptions = {
       limit:5
     };
     
-       fetch("https://api.rescuegroups.org/v5/public/animals/search/available/dogs/haspic?include=locations,pictures&sort=random&limit=1", requestOptions)
+       fetch("https://api.rescuegroups.org/v5/public/animals/search/available/dogs/haspic?include=locations,pictures&sort=random&limit=10", requestOptions)
       .then(response => response.json())
-      .then(function(data){
-        
-        var zipCode = document.createElement("p");
-        zipCode.textContent = "Location: " + JSON.stringify(data.included[0].attributes.postalcode);
-         console.log(zipCode);
-         results.appendChild(zipCode);
-    
-         var img = document.createElement("img");
-         img.src = data.included[1].attributes.original.url;
-         results.appendChild(img);
-    
-    
-       } )
-      
+      .then(function(data){ 
+        console.log(data);
+       displayPet(data.data,data.included);
+       } ) 
       }
     
 // add event listener to the search submit button
@@ -122,3 +104,55 @@ console.log(data);
 }
 
 compareZipCode("06902","06905");
+
+function displayPet(pets,location){
+  for (var i = 0; i < pets.length; i++) {
+    for (var i = 0; i < location.length; i++){
+      //creating a span to hold the cats information 
+      var petCard = document.createElement("span");
+      petCard.className= "catInfo";
+      results.appendChild(petCard);
+      // creating the picture of the pet 
+     var img = document.createElement("img");
+     img.src = pets[i].attributes.pictureThumbnailUrl;
+     img.alt = "Picture is not available";
+     img.setAttribute("style","width:200px; hight:200px; ");
+     petCard.appendChild(img);
+      // creating the  name paragraph
+     var nameEL =document.createElement("P");
+     nameEL.textContent += "Pet Name: "+ pets[i].attributes.name;
+     petCard.appendChild(nameEL);
+     //creating the age paragraph
+     var ageGroup = document.createElement("p");
+     ageGroup.textContent += "Age Group: "+ pets[i].attributes.ageGroup;
+     petCard.appendChild(ageGroup);
+     // creating the location paragraph
+     var zipCode = document.createElement("p");
+     zipCode.textContent += "Location: " + location[i].attributes.citystate +"  zip code: " + location[i].attributes.postalcode;
+     // console.log(zipCode);
+     petCard.appendChild(zipCode);
+     var contactEl = document.createElement("p");
+     contactEl.textContent= "Contact No: "+ location[i].attributes.phone;
+     petCard.appendChild(contactEl);
+    }
+  }
+}
+
+// var img = document.createElement("img");
+  // img.src = data.included[1].attributes.original.url;
+   //img.setAttribute("style","width:200px; hight:200px; ");
+   //results.appendChild(img);
+
+   //var nameEL =document.createElement("P");
+   //nameEL.textContent += "Cat Name: "+ data.data[0].attributes.name;
+   //results.appendChild(nameEL);
+  //var ageGroup = document.createElement("p");
+  //ageGroup.textContent += "Age Group: "+ data.data[0].attributes.ageGroup;
+  //results.appendChild(ageGroup);
+  //var zipCode = document.createElement("p");
+  // zipCode.textContent += "Location: " + data.included[0].attributes.citystate +"  zip code: " +data.included[0].attributes.postalcode;
+    //console.log(zipCode);
+   // results.appendChild(zipCode);
+   // var contactEl = document.createElement("p");
+   // contactEl.textContent= "Contact No: "+ data.included[0].attributes.phone;
+   // results.appendChild(contactEl);
