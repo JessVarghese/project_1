@@ -110,25 +110,30 @@ function displayPet(pets,location){
     for (var i = 0; i < location.length; i++){
       //creating a span to hold the cats information 
       var petCard = document.createElement("span");
-      petCard.className= "catInfo";
+      petCard.className= "box has-background-success-light";
       results.appendChild(petCard);
+     
       // creating the picture of the pet 
      var img = document.createElement("img");
      img.src = pets[i].attributes.pictureThumbnailUrl;
      img.alt = "Picture is not available";
      img.setAttribute("style","width:200px; hight:200px; ");
      petCard.appendChild(img);
-      // creating the  name paragraph
+     
+     // creating the  name paragraph
      var nameEL =document.createElement("P");
      nameEL.textContent += "Pet Name: "+ pets[i].attributes.name;
      petCard.appendChild(nameEL);
+     
      //creating the age paragraph
      var ageGroup = document.createElement("p");
      ageGroup.textContent += "Age Group: "+ pets[i].attributes.ageGroup;
      petCard.appendChild(ageGroup);
+     
      // creating the location paragraph
      var zipCode = document.createElement("p");
      zipCode.textContent += "Location: " + location[i].attributes.citystate +"  zip code: " + location[i].attributes.postalcode;
+     
      // console.log(zipCode);
      petCard.appendChild(zipCode);
      var contactEl = document.createElement("p");
