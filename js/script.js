@@ -1,5 +1,6 @@
 var results = document.getElementById('search-results');
 var zipCodeEl = document.getElementById('zipcode').value;
+
 // fetching the cats information
   function fetchCats(){
 var myHeaders = new Headers();
@@ -56,10 +57,11 @@ var requestOptions = {
       limit:5
     };
     
-       fetch("https://api.rescuegroups.org/v5/public/animals/search/available/dogs/haspic?include=locations,pictures&sort=random&limit=10", requestOptions)
+       fetch("https://api.rescuegroups.org/v5/public/animals/search/available/dogs/haspic?include=locations,pictures&sort=location&limit=10", requestOptions)
       .then(response => response.json())
       .then(function(data){ 
         console.log(data);
+       // calling the display function
        displayPet(data.data,data.included);
        } ) 
       }
@@ -91,7 +93,7 @@ function searchPet(){
   }
 //console.log(zipCodeEl);
 }
- 
+ // function for comparing two zip code 
 function compareZipCode(user,animal){
 var zipCodeApiUrl = "https://www.zipcodeapi.com/rest/js-6GiTBqULNpzj4BQHdbOBeh9G393M1DDzIPxST23693elmzyiOBCSKnetAbnTDfl9/distance.json/" + user +"/"+ animal +"/mile"
 fetch (zipCodeApiUrl)
@@ -100,11 +102,14 @@ fetch (zipCodeApiUrl)
 })
 .then(function (data) {
 console.log(data);
+//var farFrom = document.createElement("p");
+//farFrom.textContent = "You are:" + data + "miles away from this pet.";
+//results.appendChild(farFrom);
+//console.log(farFrom);
 })
 }
-
 compareZipCode("06902","06905");
-
+// the display function
 function displayPet(pets,location){
   for (var i = 0; i < pets.length; i++) {
     for (var i = 0; i < location.length; i++){
@@ -134,25 +139,11 @@ function displayPet(pets,location){
      var contactEl = document.createElement("p");
      contactEl.textContent= "Contact No: "+ location[i].attributes.phone;
      petCard.appendChild(contactEl);
+//trying to get only the pets that have available location 
+     //var locationType = document.createElement("p");
+    // locationType.textContent= "type:" +location[i].type;
+    // petCard.appendChild(locationType);
+    // console.log(locationType);
     }
   }
 }
-
-// var img = document.createElement("img");
-  // img.src = data.included[1].attributes.original.url;
-   //img.setAttribute("style","width:200px; hight:200px; ");
-   //results.appendChild(img);
-
-   //var nameEL =document.createElement("P");
-   //nameEL.textContent += "Cat Name: "+ data.data[0].attributes.name;
-   //results.appendChild(nameEL);
-  //var ageGroup = document.createElement("p");
-  //ageGroup.textContent += "Age Group: "+ data.data[0].attributes.ageGroup;
-  //results.appendChild(ageGroup);
-  //var zipCode = document.createElement("p");
-  // zipCode.textContent += "Location: " + data.included[0].attributes.citystate +"  zip code: " +data.included[0].attributes.postalcode;
-    //console.log(zipCode);
-   // results.appendChild(zipCode);
-   // var contactEl = document.createElement("p");
-   // contactEl.textContent= "Contact No: "+ data.included[0].attributes.phone;
-   // results.appendChild(contactEl);
