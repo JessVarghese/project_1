@@ -28,7 +28,7 @@ var requestOptions = {
   .then(response => response.json())
   .then(function(data){
     console.log(data);
-
+     // calling the display function 
     displayPet(data.data,data.included);
 
    } )
@@ -57,7 +57,7 @@ var requestOptions = {
       limit:5
     };
     
-       fetch("https://api.rescuegroups.org/v5/public/animals/search/available/dogs/haspic?include=locations,pictures&sort=location&limit=10", requestOptions)
+       fetch("https://api.rescuegroups.org/v5/public/animals/search/available/dogs/haspic?include=locations,pictures&sort=random&limit=10", requestOptions)
       .then(response => response.json())
       .then(function(data){ 
         console.log(data);
