@@ -4,7 +4,7 @@
 
 The Pet Project is an application that allows a user to easily find a Dog or Cat to potentially adopt.
 
-The use can use the search function to select either a Dog or Cat and search for those animals by location.
+The user can use the search function to select either a Dog or Cat and search for those animals by location.
 
 
 [Deployed application](https://github.com/JessVarghese/the_pet_project).
