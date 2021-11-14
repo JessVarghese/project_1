@@ -6,45 +6,69 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
         <link rel="stylesheet" href="./css/style.css" />
-        <title>Project Name</title>
+        <title>The Pet Project</title>
     </head>
-    <header>
-        <h1>Project Name</h1>
+    <header class="level hero is-primary">
+        <div class="level hero-body">
+          <h1 class="level-item title is-1">The Pet Project</h1>
+          <img class="image is-128x128"src="./images/pet-house_blk_wt.png">
+        </div>
     </header>
-    <body>
+    
+    <body class='has-background-primary'>
         <main>
-            <!--About the site paregraph-->            
-            <section class="about-site">
-                <p>About Site:</p>
-                <p>This site helps match people with a forever friend. You can sreach by any type of animal based on your location.</p>
-            </section>
-             <!--User form input--> 
-            <section class="form-section" id="form">
-                <div class="card">
-                    <h3 class="">Search Pet</h3>
-                    <form id="type-form" class="">
-                      <label class="" for="pet-type">Pet Type</label>
-                      <input name="pet-type" id="pettype" type="text" autofocus="true" class="form-input" />
-
-                    </form>
-                    <form id="location-form" class="">
-                        <label class="" for="pet-location">Pet location</label>
-                        <input name="pet-location" id="petlocation" type="text" autofocus="true" class="form-input" />
-                        <button type="submit" class="btn">Find Pet</button>
-                    </form>
+            <!--About the site -->  
+            <section class="has-background-success-light about-site box columns is-vcentered">
+                <div class="column is-6">
+                  <p class="bd-notification is-primary"><p class="is-size-4">Looking for a dog or cat to adopt? You've come to the right place!You can search for either type by using the search box on this page.</p>
                 </div>
 
+                 <!--User form input--> 
+                <form class="column is-5 box has-background-success-light">
+                    <h3 class="is-size-3">Find a Pet Available to Adopt</h3>
+                    <div class="block"></div>
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="answer" id="dog" value="dogs" >
+                        Dog
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="answer" id="cat" value="cats" >
+                        Cat
+                      </label>
+                    </div>
+                    <div class="block"></div>
+                      
+                      <div class="field">
+                        <label class="label">User location</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Enter Zip Code" id="zipcode">
+                        </div>
+                      </div>
+                      <input class="button is-primary is-active" type="submit" value="Search" id="submitbtn">  
+                </form>                     
             </section>
+
             <!-- Display search results--> 
-            <section class="" id="search-results">
-              <div class="" id=""></div>
+            <section class="section box has-background-primary" id="search-results">
+                <p class="title has-text-centered">Search Results</p>
+                <div class="Results" id="search-results"></div>
             </section>
         </main>
-        <footer>
-            <div class="info">
-                <span>Footer info</span>
+        
+        
+
+        <!--Footer Section-->
+        <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                <strong>The Pet Project</strong> Made by Jess Varghese, Abeer Tannous and Mac Glenn</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+                <div>Icons made by <a href="https://www.flaticon.com/authors/photo3idea-studio" title="photo3idea_studio">photo3idea_studio</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+              </p>
             </div>
-        </footer>
+          </footer>
+          <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="./js/script.js"></script>
     </body>
 </html>
